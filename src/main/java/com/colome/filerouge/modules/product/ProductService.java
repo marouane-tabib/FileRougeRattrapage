@@ -25,21 +25,39 @@ public class ProductService implements ProductServiceInterface {
 
     @Override
     public Product updateProduct(Long id, Product product) {
-        return null;
+        // check the product name
+        if (productRepository.findByName(product.getName()).isPresent() && !productRepository.findByName(product.getName()).get().getId().equals(id)) {
+            throw new ResourceNotFoundException("Product with name " + product.getName() + " already exists");
+        }
+
+        // get product by id
+        Product productToUpdate = this.getProductById(id);
+
+        // set sku, slug, category, brand
+        productToUpdate.setName(product.getName());
+        productToUpdate.setDescription(product.getDescription());
+        productToUpdate.setPrice(product.getPrice());
+
+        // save product
+        return productRepository.save(productToUpdate);
     }
 
     @Override
     public Product getProductById(Long id) {
-        return null;
+        return productRepository.findById(id)
+                .orElseThrow(
+                        () -> new ResourceNotFoundException("Product with id " + id + " not found")
+                );
     }
 
     @Override
     public void deleteProductById(Long id) {
-
+        Product product = this.getProductById(id);
+        productRepository.delete(product);
     }
 
     @Override
     public List<Product> getAllProducts() {
-        return List.of();
+        return productRepository.findAll();
     }
 }
