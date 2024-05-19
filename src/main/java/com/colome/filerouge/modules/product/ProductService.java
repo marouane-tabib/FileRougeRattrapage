@@ -2,9 +2,11 @@ package com.colome.filerouge.modules.product;
 
 import com.colome.filerouge.entity.Product;
 import com.colome.filerouge.handlers.exceptionHandler.ResourceNotFoundException;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class ProductService implements ProductServiceInterface {
     private final ProductRepository productRepository;
 
