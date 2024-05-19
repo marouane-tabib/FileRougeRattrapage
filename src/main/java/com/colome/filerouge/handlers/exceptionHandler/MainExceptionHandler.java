@@ -1,6 +1,6 @@
 package com.colome.filerouge.handlers.exceptionHandler;
 
-import com.stocksise.stockwise_backendintelligentstockmanagementsystem.handlers.response.ResponseMessage;
+import com.colome.filerouge.handlers.response.ResponseMessage;
 import jakarta.validation.UnexpectedTypeException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
