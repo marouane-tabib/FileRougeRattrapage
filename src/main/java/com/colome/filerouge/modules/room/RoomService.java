@@ -37,8 +37,6 @@ public class RoomService implements RoomServiceInterface {
 
         // set sku, slug, category, brand
         roomToUpdate.setName(room.getName());
-        roomToUpdate.setDescription(room.getDescription());
-        roomToUpdate.setPrice(room.getPrice());
 
         // save room
         return roomRepository.save(roomToUpdate);
