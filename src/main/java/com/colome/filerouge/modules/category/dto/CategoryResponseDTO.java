@@ -14,31 +14,7 @@ public class CategoryResponseDTO {
 
     private Long id;
 
-    private String sku;
-
     private String name;
-
-    private String slug;
-
-    private String description;
-
-    private String price;
-
-    private Integer quantity;
-
-    private String category;
-
-    private String brand;
-
-    private String unit;
-
-    private Long subCategoryId;
-
-    private Long brandId;
-
-    private Long categoryId;
-
-    private Long unitId;
 
     private String status;
 
