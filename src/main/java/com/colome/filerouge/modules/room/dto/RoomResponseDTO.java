@@ -1,6 +1,6 @@
-package com.colome.filerouge.modules.product.dto;
+package com.colome.filerouge.modules.room.dto;
 
-import com.colome.filerouge.entity.Product;
+import com.colome.filerouge.entity.Room;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -10,47 +10,20 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class ProductResponseDTO {
+public class RoomResponseDTO {
 
     private Long id;
 
-    private String sku;
-
     private String name;
-
-    private String slug;
-
-    private String description;
-
-    private String price;
-
-    private Integer quantity;
-
-    private String category;
-
-    private String brand;
-
-    private String unit;
-
-    private Long subCategoryId;
-
-    private Long brandId;
-
-    private Long categoryId;
-
-    private Long unitId;
 
     private String status;
 
-    // mapping from product
-    public static ProductResponseDTO fromProduct(Product product) {
-        return ProductResponseDTO.builder()
-                .id(product.getId())
-                .name(product.getName())
-                .description(product.getDescription())
-                .price( "$ " + product.getPrice())
-                .quantity(product.getQuantity())
-                .status(product.getStatus() ? "ACTIVE" : "INACTIVE")
+    // mapping from room
+    public static RoomResponseDTO fromRoom(Room room) {
+        return RoomResponseDTO.builder()
+                .id(room.getId())
+                .name(room.getName())
+                .status(room.getStatus() ? "ACTIVE" : "INACTIVE")
                 .build();
     }
 }
