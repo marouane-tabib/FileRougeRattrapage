@@ -27,15 +27,6 @@ public class ProductRequestDTO {
     @NotNull(message = "Quantity is required")
     private Integer quantity;
 
-    @NotNull(message = "Sub Category Id is required")
-    private Long subCategoryId;
-
-    @NotNull(message = "Brand Id is required")
-    private Long brandId;
-
-    @NotNull(message = "Unit Id is required")
-    private Long unitId;
-
     @NotNull(message = "Status is required")
     private String status;
 
