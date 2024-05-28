@@ -51,7 +51,7 @@ public class ProductController {
     }
 
     // add product
-    @PostMapping("/product")
+    @PostMapping()
     public ResponseEntity<?> addProduct(@RequestBody ProductRequestDTO productRequestDTO) {
         // convert product request dto to product
         Product product = ProductRequestDTO.toProduct(productRequestDTO);
@@ -67,7 +67,7 @@ public class ProductController {
     }
 
     // update product
-    @PutMapping("/product/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<?> updateProduct(@RequestBody ProductRequestDTO productRequestDTO, @PathVariable Long id) {
         // convert product request dto to product
         Product product = ProductRequestDTO.toProduct(productRequestDTO);
@@ -83,7 +83,7 @@ public class ProductController {
     }
 
     // delete product
-    @DeleteMapping("/product/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteProduct(@PathVariable Long id) {
         // delete the product
         productService.deleteProductById(id);
