@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
@@ -20,4 +22,7 @@ public class Room {
     private String name;
     
     private Boolean status;
+
+    @OneToMany()
+    private List<Product> productList;
 }

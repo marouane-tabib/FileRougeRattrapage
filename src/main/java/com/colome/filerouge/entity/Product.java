@@ -25,4 +25,16 @@ public class Product {
     private Integer quantity;
 
     private Boolean status;
+
+    @ManyToOne
+    private Category category;
+
+    @ManyToOne
+    private Room room;
+
+    @ManyToOne
+    private Material material;
+
+    @ManyToOne
+    private Color color;
 }

@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
@@ -18,4 +20,7 @@ public class Material {
 
     @Column(nullable = false, unique = true, length = 50)
     private String name;
+
+    @OneToMany()
+    private List<Product> productList;
 }
