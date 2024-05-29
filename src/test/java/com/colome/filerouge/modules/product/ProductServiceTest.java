@@ -1,6 +1,14 @@
 package com.colome.filerouge.modules.product;
 
 import com.colome.filerouge.entity.Product;
+import com.colome.filerouge.modules.category.CategoryRepository;
+import com.colome.filerouge.modules.category.CategoryService;
+import com.colome.filerouge.modules.color.ColorRepository;
+import com.colome.filerouge.modules.color.ColorService;
+import com.colome.filerouge.modules.material.MaterialRepository;
+import com.colome.filerouge.modules.material.MaterialService;
+import com.colome.filerouge.modules.room.RoomRepository;
+import com.colome.filerouge.modules.room.RoomService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -13,11 +21,28 @@ import static org.junit.jupiter.api.Assertions.*;
 class ProductServiceTest {
     private ProductRepository productRepository;
     private ProductService productService;
+    private CategoryService categoryService;
+    private CategoryRepository categoryRepository;
+    private RoomService roomService;
+    private RoomRepository roomRepository;
+    private MaterialService materialService;
+    private MaterialRepository materialRepository;
+    private ColorService colorService;
+    private ColorRepository colorRepository;
 
     @BeforeEach
     void setUp() {
         productRepository = Mockito.mock(ProductRepository.class);
-        productService = new ProductService(productRepository);
+        categoryRepository = Mockito.mock(CategoryRepository.class);
+        categoryService = new CategoryService(categoryRepository);
+        roomRepository = Mockito.mock(RoomRepository.class);
+        roomService = new RoomService(roomRepository);
+        materialRepository = Mockito.mock(MaterialRepository.class);
+        materialService = new MaterialService(materialRepository);
+        colorRepository = Mockito.mock(ColorRepository.class);
+        colorService = new ColorService(colorRepository);
+
+        productService = new ProductService(productRepository, categoryService, roomService, materialService, colorService);
     }
 
     @Test
