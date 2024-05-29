@@ -1,6 +1,6 @@
 package com.colome.filerouge.modules.product.dto;
 
-import com.colome.filerouge.entity.Product;
+import com.colome.filerouge.entity.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -30,6 +30,18 @@ public class ProductRequestDTO {
     @NotNull(message = "Status is required")
     private String status;
 
+    @NotNull(message = "Category Id is required")
+    private Long categoryId;
+
+    @NotNull(message = "Category Id is required")
+    private Long roomId;
+
+    @NotNull(message = "Category Id is required")
+    private Long materialId;
+
+    @NotNull(message = "Category Id is required")
+    private Long colorId;
+
     // mapping to product
     public static Product toProduct(ProductRequestDTO productRequestDTO) {
         return Product.builder()
@@ -37,6 +49,26 @@ public class ProductRequestDTO {
                 .description(productRequestDTO.getDescription())
                 .price(productRequestDTO.getPrice())
                 .status(Objects.equals(productRequestDTO.getStatus(), "Active"))
+                .category(
+                        Category.builder()
+                                .id(productRequestDTO.getCategoryId())
+                                .build()
+                )
+                .room(
+                        Room.builder()
+                                .id(productRequestDTO.getRoomId())
+                                .build()
+                )
+                .material(
+                        Material.builder()
+                                .id(productRequestDTO.getMaterialId())
+                                .build()
+                )
+                .color(
+                        Color.builder()
+                                .id(productRequestDTO.getColorId())
+                                .build()
+                )
                 .build();
     }
 
